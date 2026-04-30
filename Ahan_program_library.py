@@ -12,7 +12,6 @@ while True:
     selection = input('Enter the number of the program you want to run: ')
     if selection == '1':
         print('Running Beta Program...')
-
         print('Hello, world')
         print('What is your name?')
         my_name = input('<')
