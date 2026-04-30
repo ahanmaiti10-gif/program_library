@@ -8,6 +8,7 @@ while True:
     print('5. Word Guessing Game')
     print('6. Probability Simulator')
     print('7. Rock, Paper, Scissors')
+    print('8. Calculators')
     selection = input('Enter the number of the program you want to run: ')
     if selection == '1':
         print('Running Beta Program...')
@@ -238,6 +239,62 @@ while True:
             print('Congratulations! You won the game!')
         else:
             print('Computer wins the game! Better luck next time!')
+
+    elif selection == '8':
+        print('Running Calculator...')
+        print('Which mode do you want to use? (basic / miscellaneous)')
+        choose_mode = input('<')
+        if choose_mode == 'basic':
+            print('Enter the first number:')
+            num1 = float(input('<'))
+            print('Enter the operator (+, -, *, /):')
+            operator = input('<')
+            print('Enter the second number:')
+            num2 = float(input('<'))
+            if operator == '+':
+                result = num1 + num2
+                print(str(num1) + ' + ' + str(num2) + ' = ' + str(result))
+            elif operator == '-':
+                result = num1 - num2
+                print(str(num1) + ' - ' + str(num2) + ' = ' + str(result))
+            elif operator == '*':
+                result = num1 * num2
+                print(str(num1) + ' * ' + str(num2) + ' = ' + str(result))
+            elif operator == '/':
+                if num2 != 0:
+                    result = num1 / num2
+                    print(str(num1) + ' / ' + str(num2) + ' = ' + str(result))
+                else:
+                    print('Error: Division by zero is not allowed.')
+            else:
+                print('Error: Invalid operator. Please enter one of +, -, *, or /.')
+        elif choose_mode == 'miscellaneous':
+            print('Enter the first number:')
+            num1 = float(input('<'))
+            print('Enter the operator (sqrt, ^, log):')
+            operator = input('<')
+            print('Enter the second number:')
+            num2 = float(input('<'))
+            if operator == 'sqrt':
+                if num1 >= 0:
+                    result = num1 ** 0.5
+                    print('The square root of ' + str(num1) + ' is ' + str(result))
+                else:
+                    print('Error: Cannot calculate the square root of a negative number.')
+            elif operator == '^':
+                result = num1 ** num2
+                print(str(num1) + ' raised to the power of ' + str(num2) + ' is ' + str(result))
+            elif operator == 'log':
+                import math
+                if num1 > 0 and num2 > 0 and num2 != 1:
+                    result = math.log(num1, num2)
+                    print('The logarithm of ' + str(num1) + ' to the base ' + str(num2) + ' is ' + str(result))
+                else:
+                    print('Error: For logarithm, the first number must be greater than 0, the base must be greater than 0 and not equal to 1.')
+            else:
+                print('Error: Invalid operator. Please enter "sqrt", "^", or "log".')
+        else:
+            print('Invalid mode. Please enter "basic" or "miscellaneous".')
 
     elif selection == '0':
         print('Exiting my program library. Goodbye!')
