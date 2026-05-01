@@ -9,6 +9,9 @@ This is my first official coding project made with Python. This is a library tha
  5. A word guessing game where the user has to guess a randomly selected word from a list of words.
  6. A probability simulator that simulates coin flips, dice rolls, and card draws to demonstrate the concept of probability.
  7. A rock, paper, scissors game where the user plays against the computer.
+ 8. Two calculators, one with basic operators, and another with more advanced operators
+ 9. A program where a sentence or phrase is repeated a given amount of times
+ 10. A temperature converter between Farenheit (F), Celsius (C), and Kelvin (K)
  
  And hopefully many more!
  
