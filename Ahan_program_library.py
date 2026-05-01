@@ -19,7 +19,6 @@ while True:
 
     elif selection == '1':
         print('Running Beta Program...')
-
         print('Hello, world')
         print('What is your name?')
         my_name = input('<')
@@ -40,7 +39,6 @@ while True:
 
     elif selection == '2':
         print('Running Dishonest Capacity Calculator...')
-        
         print('Enter TB or GB for the advertised unit:')
         unit = input('<')
         if unit == 'TB' or unit == 'tb':
