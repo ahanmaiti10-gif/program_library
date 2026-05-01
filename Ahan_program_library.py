@@ -1,5 +1,5 @@
+print('Hello; welcome to my program library!')
 while True:
-    print('Hello; welcome to my program library!')
     print('What program would you like to run?:')
     print('1. Beta Program')
     print('2. Dishonest Capacity Calculator')
@@ -9,9 +9,17 @@ while True:
     print('6. Probability Simulator')
     print('7. Rock, Paper, Scissors')
     print('8. Calculators')
-    selection = input('Enter the number of the program you want to run: ')
-    if selection == '1':
+    print('9. String Repeater')
+    print('10. Temperature Converter')
+    selection = input('Enter the number of the program you want to run: ') #0 is for exiting the program library
+
+    if selection == '0':
+        print('Exiting the program library. Goodbye!')
+        break
+
+    elif selection == '1':
         print('Running Beta Program...')
+
         print('Hello, world')
         print('What is your name?')
         my_name = input('<')
@@ -209,6 +217,7 @@ while True:
 
         else:
             print('Event not recognized. Please enter "coin flip", "dice roll", or "card draw".')
+
     elif selection == '7':
         print('Running Rock, Paper, Scissors...')
         import random
@@ -295,12 +304,51 @@ while True:
         else:
             print('Invalid mode. Please enter "basic" or "miscellaneous".')
 
-    elif selection == '0':
-        print('Exiting my program library. Goodbye!')
-        break
+    elif selection == '9':
+        print('Running String Repeater...')
+        i = 1
+        print('Enter the string you want to repeat:')
+        string_to_repeat = input('<')
+        print('Enter the number of times to repeat the string:')
+        repeat_count = int(input('<'))
+        print('Would you like to see the count of each character in the string? (yes/no):')
+        see_count = input('<').lower()
+        if see_count == 'yes':
+            for i in range(repeat_count):
+                print(str(i + 1) + '. ' + string_to_repeat)
+                i = i + 1
+        elif see_count == 'no':
+            for i in range(repeat_count):
+                print(string_to_repeat)
+                i = i + 1
+        else:
+            print('Invalid input. Please enter "yes" or "no".')
+
+    elif selection == '10':
+        print('Running Temperature Converter...')
+        print('Enter the temperature you want to convert (e.g., 100C, 212F, 373.15K):')
+        temp_input = input('<')
+        if temp_input.endswith('C') or temp_input.endswith('c'):
+            temp_c = float(temp_input[:-1])
+            temp_f = (temp_c * 9/5) + 32
+            temp_k = temp_c + 273
+            print(str(temp_c) + '°C is equal to ' + str(temp_f) + '°F and ' + str(temp_k) + 'K.')
+        elif temp_input.endswith('F') or temp_input.endswith('f'):
+            temp_f = float(temp_input[:-1])
+            temp_c = (temp_f - 32) * 5/9
+            temp_k = temp_c + 273
+            print(str(temp_f) + '°F is equal to ' + str(temp_c) + '°C and ' + str(temp_k) + 'K.')
+        elif temp_input.endswith('K') or temp_input.endswith('k'):
+            temp_k = float(temp_input[:-1])
+            temp_c = temp_k - 273
+            temp_f = (temp_c * 9/5) + 32
+            print(str(temp_k) + 'K is equal to ' + str(temp_c) + '°C and ' + str(temp_f) + '°F.')
+        else:
+            print('Invalid input. Please enter a temperature in the format of a number followed by C, F, or K (e.g., 100C, 212F, 373.15K).')
 
     else:
         print('Invalid selection. Please enter a number from 1 to 5.')
+
     continue_program = input('Do you want to run another program? (yes/no): ')
     if continue_program.lower() != 'yes':
         print('Thank you for using my program library. Goodbye!')
