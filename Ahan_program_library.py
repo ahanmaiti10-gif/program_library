@@ -9,8 +9,10 @@ while True:
     print('6. Probability Simulator')
     print('7. Rock, Paper, Scissors')
     print('8. Calculators')
-    print('9. String Repeater')
+    print('9. String Programs')
     print('10. Temperature Converter')
+    print('11. Calendar')
+    print('12. program[12]')
     selection = input('Enter the number of the program you want to run: ') #0 is for exiting the program library
 
     if selection == '0':
@@ -303,24 +305,41 @@ while True:
             print('Invalid mode. Please enter "basic" or "miscellaneous".')
 
     elif selection == '9':
-        print('Running String Repeater...')
-        i = 1
-        print('Enter the string you want to repeat:')
-        string_to_repeat = input('<')
-        print('Enter the number of times to repeat the string:')
-        repeat_count = int(input('<'))
-        print('Would you like to see the count of each character in the string? (yes/no):')
-        see_count = input('<').lower()
-        if see_count == 'yes':
-            for i in range(repeat_count):
-                print(str(i + 1) + '. ' + string_to_repeat)
+        print('Running String Programs...')
+        print('Which programs would you like to run? (string repeater / string generator)')
+        program_choice = input('<')
+        if program_choice == 'string repeater' or program_choice == 'repeater':
+            i = 1
+            print('Enter the string you want to repeat:')
+            string_to_repeat = input('<')
+            print('Enter the number of times to repeat the string:')
+            repeat_count = int(input('<'))
+            print('Would you like to see the count of each character in the string? (yes/no):')
+            see_count = input('<').lower()
+            if see_count == 'yes':
+                for i in range(repeat_count):
+                    print(str(i + 1) + '. ' + string_to_repeat)
                 i = i + 1
-        elif see_count == 'no':
-            for i in range(repeat_count):
-                print(string_to_repeat)
-                i = i + 1
-        else:
-            print('Invalid input. Please enter "yes" or "no".')
+            elif see_count == 'no':
+                for i in range(repeat_count):
+                    print(string_to_repeat)
+                    i = i + 1
+            else:
+                print('Invalid input. Please enter "yes" or "no".')
+        if program_choice == 'string generator' or program_choice == 'generator':
+            print('Running String Generator...')
+            import random
+            print('Enter the length of the string you want to generate:')
+            length = int(input('<'))
+            characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()'
+            print('Shall any characters be excluded? (yes/no):')
+            exclude_chars = input('<').lower() == 'yes'
+            if exclude_chars:
+                print('Enter the characters to exclude (e.g., abc123)')
+                excluded_chars = input('<')
+                characters = characters.replace(excluded_chars, '')
+            generated_string = ''.join(random.choice(characters) for _ in range(length))
+            print('Generated string: ' + generated_string)
 
     elif selection == '10':
         print('Running Temperature Converter...')
@@ -343,9 +362,27 @@ while True:
             print(str(temp_k) + 'K is equal to ' + str(temp_c) + '°C and ' + str(temp_f) + '°F.')
         else:
             print('Invalid input. Please enter a temperature in the format of a number followed by C, F, or K (e.g., 100C, 212F, 373.15K).')
+    
+    elif selection == '11':
+        print('Running Calendar...')
+        import time
+        import calendar
+        print('Hello! Today is ' + time.strftime('%B %d, %Y') + '.')
+        print('It is currently ' + time.strftime('%I:%M %p') + '.')
+        print('Enter the year and month you want to see the calendar for (e.g., 2024 / 6):')
+        year = int(input('Year: '))
+        month = int(input('Month (1-12): '))
+        if 1 <= month <= 12:
+            print('\n' + calendar.month(year, month))
+        else:
+            print('Invalid month. Please enter a number from 1 to 12.')
+
+    elif selection == '12':
+        print('Running program[12]...')
+        #Insert program[12] code here
 
     else:
-        print('Invalid selection. Please enter a number from 1 to 5.')
+        print('Invalid selection. Please enter a number from 1 to 12.')
 
     continue_program = input('Do you want to run another program? (yes/no): ')
     if continue_program.lower() != 'yes':
