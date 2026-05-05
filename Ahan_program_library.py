@@ -329,16 +329,16 @@ while True:
         if temp_input.endswith('C') or temp_input.endswith('c'):
             temp_c = float(temp_input[:-1])
             temp_f = (temp_c * 9/5) + 32
-            temp_k = temp_c + 273
+            temp_k = temp_c + 273.15
             print(str(temp_c) + '°C is equal to ' + str(temp_f) + '°F and ' + str(temp_k) + 'K.')
         elif temp_input.endswith('F') or temp_input.endswith('f'):
             temp_f = float(temp_input[:-1])
             temp_c = (temp_f - 32) * 5/9
-            temp_k = temp_c + 273
+            temp_k = temp_c + 273.15
             print(str(temp_f) + '°F is equal to ' + str(temp_c) + '°C and ' + str(temp_k) + 'K.')
         elif temp_input.endswith('K') or temp_input.endswith('k'):
             temp_k = float(temp_input[:-1])
-            temp_c = temp_k - 273
+            temp_c = temp_k - 273.15
             temp_f = (temp_c * 9/5) + 32
             print(str(temp_k) + 'K is equal to ' + str(temp_c) + '°C and ' + str(temp_f) + '°F.')
         else:
