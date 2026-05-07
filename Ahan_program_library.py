@@ -1,18 +1,38 @@
+import time, sys, random, math, calendar
+
 print('Hello; welcome to my program library!')
+time.sleep(0.5)
+print('What program would you like to run?:')
+time.sleep(0.5)
 while True:
-    print('What program would you like to run?:')
     print('1. Beta Program')
+    time.sleep(0.1)
     print('2. Dishonest Capacity Calculator')
+    time.sleep(0.1)
     print('3. Number Guessing Game')
+    time.sleep(0.1)
     print('4. Login System')
+    time.sleep(0.1)
     print('5. Word Guessing Game')
+    time.sleep(0.1)
     print('6. Probability Simulator')
+    time.sleep(0.1)
     print('7. Rock, Paper, Scissors')
+    time.sleep(0.1)
     print('8. Calculators')
+    time.sleep(0.1)
     print('9. String Programs')
+    time.sleep(0.1)
     print('10. Temperature Converter')
+    time.sleep(0.1)
     print('11. Calendar')
-    print('12. program[12]')
+    time.sleep(0.1)
+    print('12. 8-Ball Simulator')
+    time.sleep(0.1)
+    print('13. Animations')
+    time.sleep(0.1)
+    print('14. Matrix Code Rain')
+    time.sleep(0.1)
     selection = input('Enter the number of the program you want to run: ') #0 is for exiting the program library
 
     if selection == '0':
@@ -21,6 +41,7 @@ while True:
 
     elif selection == '1':
         print('Running Beta Program...')
+        time.sleep(1)
         print('Hello, world')
         print('What is your name?')
         my_name = input('<')
@@ -41,6 +62,7 @@ while True:
 
     elif selection == '2':
         print('Running Dishonest Capacity Calculator...')
+        time.sleep(1)
         print('Enter TB or GB for the advertised unit:')
         unit = input('<')
         if unit == 'TB' or unit == 'tb':
@@ -54,7 +76,7 @@ while True:
 
     elif selection == '3':
         print('Running Number Guessing Game...')
-        import random
+        time.sleep(1)
         attempts = 0
         print('Please enter the range for the number to guess (e.g., 1-100):')
         lower_bound = int(input('Lower bound: '))
@@ -77,6 +99,7 @@ while True:
 
     elif selection == '4':
         print('Running Login System...')
+        time.sleep(1)
         print('What will be your difficulty? (easy / medium / hard)')
         difficulty = input('<')
         if difficulty == 'easy':
@@ -109,7 +132,6 @@ while True:
                     
 
         elif difficulty == 'hard':
-            import random
             user = random.choice(['admin', 'user', 'guest', 'root'])
             pass_ = random.choice(['password123', 'letmein', '123456', 'adminpass'])
             while True:
@@ -133,7 +155,7 @@ while True:
 
     elif selection == '5':
         print('Running Word Guessing Game...')
-        import random
+        time.sleep(1)
         words = ['python', 'programming', 'library', 'guessing', 'game']
         word_to_guess = random.choice(words)
         guessed_letters = []
@@ -177,20 +199,25 @@ while True:
                 
     elif selection == '6':
         print('Running Probability Simulator...')
-        import random
+        time.sleep(1)
         print('What event do you want to simulate? (e.g., coin flip, dice roll, card draw)')
         event = input('<')
         print('How many trials do you want to run?')
         trials = int(input('<'))
         if event == 'coin flip':
-            outcomes = ['heads', 'tails']
-            results = {'heads': 0, 'tails': 0}
+            print('H = Heads; T = Tails')
+            time.sleep(0.5)
+            outcomes = ['H', 'T']
+            results = {'H': 0, 'T': 0}
+            sequence = []
             for _ in range(trials):
                 outcome = random.choice(outcomes)
                 results[outcome] += 1
+                sequence.append(outcome)
             print('Results after ' + str(trials) + ' coin flips:')
-            print('Heads: ' + str(results['heads']) + ' (' + str(round(results['heads'] / trials * 100, 2)) + '%)')
-            print('Tails: ' + str(results['tails']) + ' (' + str(round(results['tails'] / trials * 100, 2)) + '%)')
+            print('Sequence: ' + ' '.join(sequence))
+            print('Heads: ' + str(results['H']) + ' (' + str(round(results['H'] / trials * 100, 2)) + '%)')
+            print('Tails: ' + str(results['T']) + ' (' + str(round(results['T'] / trials * 100, 2)) + '%)')
 
         elif event == 'dice roll':
             outcomes = [1, 2, 3, 4, 5, 6]
@@ -212,15 +239,17 @@ while True:
                 results[card_drawn] += 1
             print('Results after drawing a card from the deck ' + str(trials) + ' times:')
             for card in deck:
-                print(card + ': ' + str(results[card]) + ' (' + str(round(results[card] / trials * 100, 2)) + '%)')
-            print('*[H, D, C, S] are abbreviations for [Hearts, Diamonds, Clubs, Spades].*')
+                if results[card] > 0:
+                    percentage = round(results[card] / trials * 100, 2)
+                    print(card + ': ' + str(results[card]) + ' (' + str(percentage) + '%)')
+            print('*[H, D, C, S] are abbreviations for [Hearts, Diamonds, Clubs, Spades]*')
 
         else:
             print('Event not recognized. Please enter "coin flip", "dice roll", or "card draw".')
 
     elif selection == '7':
         print('Running Rock, Paper, Scissors...')
-        import random
+        time.sleep(1)
         choices = ['rock', 'paper', 'scissors']
         player_score = 0
         computer_score = 0
@@ -250,6 +279,7 @@ while True:
 
     elif selection == '8':
         print('Running Calculator...')
+        time.sleep(1)
         print('Which mode do you want to use? (basic / miscellaneous)')
         choose_mode = input('<')
         if choose_mode == 'basic':
@@ -274,6 +304,7 @@ while True:
                     print(str(num1) + ' / ' + str(num2) + ' = ' + str(result))
                 else:
                     print('Error: Division by zero is not allowed.')
+                    continue
             else:
                 print('Error: Invalid operator. Please enter one of +, -, *, or /.')
         elif choose_mode == 'miscellaneous':
@@ -293,7 +324,6 @@ while True:
                 result = num1 ** num2
                 print(str(num1) + ' raised to the power of ' + str(num2) + ' is ' + str(result))
             elif operator == 'log':
-                import math
                 if num1 > 0 and num2 > 0 and num2 != 1:
                     result = math.log(num1, num2)
                     print('The logarithm of ' + str(num1) + ' to the base ' + str(num2) + ' is ' + str(result))
@@ -306,6 +336,7 @@ while True:
 
     elif selection == '9':
         print('Running String Programs...')
+        time.sleep(1)
         print('Which programs would you like to run? (string repeater / string generator)')
         program_choice = input('<')
         if program_choice == 'string repeater' or program_choice == 'repeater':
@@ -328,13 +359,12 @@ while True:
                 print('Invalid input. Please enter "yes" or "no".')
         if program_choice == 'string generator' or program_choice == 'generator':
             print('Running String Generator...')
-            import random
-            print('Enter the length of the string you want to generate:')
+            print('Enter the length of the string you want to generate: (e.g.: 10 characters long)')
             length = int(input('<'))
             characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()'
             print('Shall any characters be excluded? (yes/no):')
             exclude_chars = input('<').lower() == 'yes'
-            if exclude_chars:
+            if exclude_chars == 'yes':
                 print('Enter the characters to exclude (e.g., abc123)')
                 excluded_chars = input('<')
                 characters = characters.replace(excluded_chars, '')
@@ -343,6 +373,7 @@ while True:
 
     elif selection == '10':
         print('Running Temperature Converter...')
+        time.sleep(1)
         print('Enter the temperature you want to convert (e.g., 100C, 212F, 373.15K):')
         temp_input = input('<')
         if temp_input.endswith('C') or temp_input.endswith('c'):
@@ -365,26 +396,142 @@ while True:
     
     elif selection == '11':
         print('Running Calendar...')
-        import time
-        import calendar
+        time.sleep(1)
         print('Hello! Today is ' + time.strftime('%B %d, %Y') + '.')
         print('It is currently ' + time.strftime('%I:%M %p') + '.')
-        print('Enter the year and month you want to see the calendar for (e.g., 2024 / 6):')
+        print('Enter the year and month you want to see the calendar for (e.g., 2024 6):')
         year = int(input('Year: '))
         month = int(input('Month (1-12): '))
         if 1 <= month <= 12:
             print('\n' + calendar.month(year, month))
         else:
             print('Invalid month. Please enter a number from 1 to 12.')
-
+    
     elif selection == '12':
-        print('Running program[12]...')
-        #Insert program[12] code here
+        print('Running 8-Ball Simulator...')
+        time.sleep(1)
+        def get_8ball_response(answer):
+            if answer == '1':
+                return 'It is certain.'
+            elif answer == '2':
+                return 'It is decidedly so.'
+            elif answer == '3':
+                return 'Without a doubt.'
+            elif answer == '4':
+                return 'Yes - definitely.'
+            elif answer == '5':
+                return 'You may rely on it.'
+            elif answer == '6':
+                return 'As I see it, yes.'
+            elif answer == '7':
+                return 'Most likely.'
+            elif answer == '8':
+                return 'Outlook good.'
+            elif answer == '9':
+                return 'Yes.'
+            elif answer == '10':
+                return 'Signs point to yes.'
+            elif answer == '11':
+                return 'Reply hazy, try again.'
+            elif answer == '12':
+                return 'Ask again later.'
+            elif answer == '13':
+                return 'Better not tell you now.'
+            elif answer == '14':
+                return 'Cannot predict now.'
+            elif answer == '15':
+                return 'Concentrate and ask again.'
+            elif answer == '16':
+                return 'Don\'t count on it.'
+            elif answer == '17':
+                return 'My reply is no.'
+            elif answer == '18':
+                return 'My sources say no.'
+            elif answer == '19':
+                return 'Outlook not so good.'
+            elif answer == '20':
+                return 'Very doubtful.'
+            elif answer == '21':
+                return 'No.'
+        print('Ask a yes or no question:')
+        input('<')
+        random_answer = str(random.randint(1, 21))
+        if random_answer != '15':
+            print('The Magic 8-Ball says: ' + get_8ball_response(random_answer))
+        else:
+            random_answer2 = str(random.randint(1, 14)) or str(random.randint(16, 21))
+            print('The Magic 8-Ball says: ' + get_8ball_response(random_answer2))
+
+    elif selection == '13':
+        print('Running Animations...')
+        time.sleep(1)
+        print('Which animation would you like to run? (zigzag / spike)')
+        animation_choice = input('<')
+        print('Note: Press Ctrl+C to stop the animation.')
+        time.sleep(1)
+        if animation_choice == 'zigzag':
+            indent = 0
+            indent_increaseing = True
+            try:
+                while True:
+                    print(' ' * indent, end='')
+                    print('********')
+                    time.sleep(0.1)
+                    if indent_increaseing:
+                        indent += 1
+                        if indent == 20:
+                            indent_increaseing = False
+                    else:
+                        indent -= 1
+                        if indent == 0:
+                            indent_increaseing = True
+            except KeyboardInterrupt:
+                print('Animation stopped.')
+        elif animation_choice == 'spike':
+            try:
+                while True:
+                    for i in range(1, 9):
+                        print('-' * (i * i))
+                        time.sleep(0.1)
+                    for i in range(7, 1, -1):
+                        print('-' * (i * i))
+                        time.sleep(0.1)
+            except KeyboardInterrupt:
+                print('Animation stopped')
+
+    elif selection == '14':
+        print('Running Matrix Code Rain...')
+        time.sleep(1)
+        print('How wide do you want the box? (default is 70)')
+        user_input = input()
+        if user_input.isdigit():
+            WIDTH = int(user_input)
+        else:
+            WIDTH = 70
+        print('Press Ctrl+C to stop the animation.')
+        try:
+            columns = [0] * WIDTH
+            time.sleep(1)
+            while True:
+                for i in range(WIDTH):
+                    if random.random() < 0.02:
+                        columns[i] = random.randint(4, 14)
+                    if columns[i] == 0:
+                        print(' ', end='')
+                    else:
+                        print(random.choice([0, 1]), end='')
+                        columns[i] -= 1
+                print()
+                time.sleep(0.1)
+        except KeyboardInterrupt:
+            print('Code Rain Stopped')
 
     else:
-        print('Invalid selection. Please enter a number from 1 to 12.')
+        print('Invalid selection. Please enter a number from 1 to 14.')
+        time.sleep(0.5)
+        continue
 
     continue_program = input('Do you want to run another program? (yes/no): ')
-    if continue_program.lower() != 'yes':
+    if continue_program.lower() == 'no':
         print('Thank you for using my program library. Goodbye!')
         break
